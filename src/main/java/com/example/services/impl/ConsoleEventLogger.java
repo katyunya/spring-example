@@ -8,6 +8,6 @@ import org.springframework.stereotype.Service;
 public class ConsoleEventLogger implements EventLogger {
 
     public void logEvent(Event event) {
-        System.out.println(event);
+        System.out.println("This is event: ".concat(event.toString()));
     }
 }
