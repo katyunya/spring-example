@@ -1,10 +1,10 @@
 package com.example;
 
 import com.example.services.EventLogger;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.context.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,20 +12,10 @@ import java.util.List;
 import java.util.Random;
 
 @Configuration
+@ImportResource({"classpath*:component-context.xml"})
 @ComponentScan(basePackages = {"com.example"})
 @PropertySource("classpath:client.properties")
 public class Config {
-
-    @Value("${id}")
-    private String id;
-
-    @Value("${fullName}")
-    private String fullName;
-
-    @Bean
-    public Client client() {
-        return new Client(Integer.parseInt(id), fullName);
-    }
 
     @Bean
     @Scope(BeanDefinition.SCOPE_PROTOTYPE)
@@ -36,7 +26,7 @@ public class Config {
 
     @Bean
     public List<EventLogger> eventLoggers(EventLogger consoleEventLogger, EventLogger anotherConsoleEventLogger) {
-        List<EventLogger> eventLoggers = new ArrayList<EventLogger>();
+        List<EventLogger> eventLoggers = new ArrayList<>();
         eventLoggers.add(consoleEventLogger);
         eventLoggers.add(anotherConsoleEventLogger);
         return eventLoggers;
