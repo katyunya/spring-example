@@ -1,7 +1,6 @@
 package com.example;
 
 import com.example.services.EventLogger;
-import com.logger.Logged;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;

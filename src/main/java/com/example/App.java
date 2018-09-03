@@ -25,7 +25,7 @@ public class App {
     }
 
     @Logged
-    public String method(String s){
+    public String method(String s) {
         return s.concat("abc");
     }
 }
