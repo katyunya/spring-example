@@ -14,6 +14,7 @@ import java.util.Random;
 @Configuration
 @ImportResource({"classpath*:component-context.xml"})
 @ComponentScan(basePackages = {"com.example"})
+@EnableAspectJAutoProxy
 public class Config {
 
     @Bean
