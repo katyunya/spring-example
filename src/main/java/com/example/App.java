@@ -11,7 +11,6 @@ public class App {
     @Autowired
     private Client client;
     @Autowired
-    //@Qualifier("anotherConsoleEventLogger")
     private List<EventLogger> eventLoggers;
     @Autowired
     private Event event;
@@ -20,5 +19,6 @@ public class App {
         for (EventLogger eventLogger : eventLoggers) {
             eventLogger.logEvent(event);
         }
+        System.out.println("This is client: ".concat(client.toString()));
     }
 }

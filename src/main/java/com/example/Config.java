@@ -1,13 +1,10 @@
 package com.example;
 
 import com.example.services.EventLogger;
-import com.example.services.impl.AnotherConsoleEventLogger;
-import com.example.services.impl.ConsoleEventLogger;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.BeanDefinition;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.*;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,11 +13,18 @@ import java.util.Random;
 
 @Configuration
 @ComponentScan(basePackages = {"com.example"})
+@PropertySource("classpath:client.properties")
 public class Config {
+
+    @Value("${id}")
+    private String id;
+
+    @Value("${fullName}")
+    private String fullName;
 
     @Bean
     public Client client() {
-        return new Client(1, "Ivan");
+        return new Client(Integer.parseInt(id), fullName);
     }
 
     @Bean
@@ -36,5 +40,10 @@ public class Config {
         eventLoggers.add(consoleEventLogger);
         eventLoggers.add(anotherConsoleEventLogger);
         return eventLoggers;
+    }
+
+    @Bean
+    public static PropertySourcesPlaceholderConfigurer propertyConfigIn() {
+        return new PropertySourcesPlaceholderConfigurer();
     }
 }
