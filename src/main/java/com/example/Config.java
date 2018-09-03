@@ -4,7 +4,6 @@ import com.example.services.EventLogger;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.*;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
-import org.springframework.context.annotation.*;
 
 import java.util.ArrayList;
 import java.util.Date;
