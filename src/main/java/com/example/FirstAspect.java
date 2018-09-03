@@ -11,7 +11,8 @@ import org.springframework.stereotype.Component;
 public class FirstAspect {
 
     @Pointcut("execution(void com.example.App.logEvent(..))")
-    private void allLogEventsMethods(){ }
+    private void allLogEventsMethods() {
+    }
 
     @Before("allLogEventsMethods()")
     public void logBefore(JoinPoint joinPoint) {
