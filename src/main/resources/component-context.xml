@@ -5,8 +5,8 @@
         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="client" class="com.example.Client">
-        <constructor-arg name="id" value="1"/>
-        <constructor-arg name="fullName" value="Ivan Ivanovich"/>
+        <constructor-arg name="id" value="${id}"/>
+        <constructor-arg name="fullName" value="${fullName}"/>
     </bean>
 
 </beans>
