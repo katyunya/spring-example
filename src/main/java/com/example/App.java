@@ -20,5 +20,6 @@ public class App {
         for (EventLogger eventLogger : eventLoggers) {
             eventLogger.logEvent(event);
         }
+        System.out.println(client);
     }
 }
