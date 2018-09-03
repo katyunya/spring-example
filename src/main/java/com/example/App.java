@@ -1,6 +1,7 @@
 package com.example;
 
 import com.example.services.EventLogger;
+import com.logger.Logged;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -15,10 +16,16 @@ public class App {
     @Autowired
     private Event event;
 
+    @Logged
     public void logEvent(Event event) {
         for (EventLogger eventLogger : eventLoggers) {
             eventLogger.logEvent(event);
         }
         System.out.println("This is client: ".concat(client.toString()));
+    }
+
+    @Logged
+    public String method(String s){
+        return s.concat("abc");
     }
 }
